@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body>
+	<div class="max-w-xl mx-auto my-5 p-10">
+		<div role="provider" x-data="{ active: 1 }">
+
+			<div class="text-sm font-medium text-center
+				text-gray-500 border-b border-gray-200">
+
+				<ul role="tab-bar" class="flex flex-wrap -mb-px">
+					<li role="tab" class="mr-2" x-data="{ tab: 1 }">
+						<a
+							href="#"
+							x-on:click="active = tab"
+							class="inline-block p-4 hover:text-gray-600
+								border-b-2 rounded-t-lg"
+							:class="{
+								'text-blue-600': active === tab,
+								'border-blue-600': active === tab
+							}">
+							Users
+						</a>
+					</li>
+
+					<li role="tab" class="mr-2" x-data="{ tab: 2 }">
+						<a
+							href="#"
+							x-on:click="active = tab"
+							class="inline-block p-4 border-b-2
+								rounded-t-lg hover:text-gray-600"
+							:class="{
+								'text-blue-600': active === tab,
+								'border-blue-600': active === tab
+							}">
+							Settings
+						</a>
+					</li>
+
+				</ul>
+			</div>
+
+			<div class="text-sm text-gray-800">
+				<div role="tab-panel" x-show="active === 1" class="p-4">
+					<b>Users</b> - Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, eveniet. Maiores, velit ab. Reprehenderit autem facilis, blanditiis amet commodi quidem laboriosam facere. Suscipit fugit
+					dignissimos in optio rerum quibusdam ab?
+				</div>
+				<template x-if="true">
+					<div role="tab-panel" x-show="active === 2" class="p-4" >
+						<b>Settings</b> - Reprehenderit autem facilis, blanditiis amet commodi quidem laboriosam facere. Suscipit fugit dignissimos in optio rerum quibusdam ab? Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, eveniet. Maiores, velit ab.
+					</div>
+				</template>
+			</div>
+
+		</div>
+	</div>
+</body>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body>
+	<div class="max-w-xl mx-auto my-5 p-10">
+		<div
+			role="provider"
+			x-data="{ show: false }"
+			class="relative">
+			<button
+				type="button"
+				x-on:click="show = !show"
+				class="text-white bg-blue-700
+					hover:bg-blue-800 rounded-lg
+					text-sm pl-5 pr-3 py-2">
+				Dropdown &vellip;
+			</button>
+
+			<template x-if="true">
+				<div
+					role="dropdown-menu"
+					x-show="show"
+					x-on:click.outside="show = false"
+					class="absolute z-10 mt-1 bg-white
+						rounded-lg shadow w-44" >
+
+					<ul class="py-2 text-sm text-gray-700">
+						<li>
+							<a href="#" class="block px-4 py-2
+								hover:bg-gray-100">Profile</a>
+						</li>
+						<li>
+							<a href="#" class="block px-4 py-2
+								hover:bg-gray-100">Messages</a>
+						</li>
+						<li>
+							<a href="#" class="block px-4 py-2
+								hover:bg-gray-100">Settings</a>
+						</li>
+						<li>
+							<a href="#" class="block px-4 py-2
+								hover:bg-gray-100">Signout</a>
+						</li>
+					</ul>
+				</div>
+			</template>
+		</div>
+	</div>
+</body>

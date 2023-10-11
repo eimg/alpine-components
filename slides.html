@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body>
+	<div class="max-w-xl mx-auto my-5 p-10">
+		<div
+			role="provider"
+			x-data="{
+				active: 1,
+				total: 3,
+				next() {
+					this.active += 1;
+					if(this.active > this.total) {
+						this.active = 1;
+					}
+				},
+				prev() {
+					this.active -= 1;
+					if(this.active < 1) {
+						this.active = this.total;
+					}
+				}
+			}">
+
+			<div role="component-container" class="relative w-full">
+
+				<div role="slide-container" class="rounded-lg overflow-hidden">
+					<div
+						role="slide"
+						x-data="{ slide: 1 }"
+						x-show="active === slide"
+						class="h-60 flex items-center
+							justify-center bg-gray-400">
+						Slide One
+					</div>
+					<div
+						role="slide"
+						x-data="{ slide: 2 }"
+						x-show="active === slide"
+						class="h-60 flex items-center
+							justify-center bg-gray-400">
+						Slide Two
+					</div>
+					<div
+						role="slide"
+						x-data="{ slide: 3 }"
+						x-show="active === slide"
+						class="h-60 flex items-center
+							justify-center bg-gray-400">
+						Slide Three
+					</div>
+				</div>
+
+				<button
+					type="button"
+					role="prev-button"
+					x-on:click="prev"
+					class="absolute top-0 left-0 z-30
+						flex items-center justify-center h-full px-4
+						cursor-pointer group focus:outline-none">
+					<span
+						class="inline-flex items-center justify-center
+							w-10 h-10 rounded-full bg-white/30
+							group-hover:bg-white/50 group-focus:ring-4
+							group-focus:ring-white group-focus:outline-none">
+						&lsaquo;
+					</span>
+				</button>
+
+				<button
+					type="button"
+					role="next-button"
+					x-on:click="next"
+					class="absolute top-0 right-0 z-30 flex
+						items-center justify-center h-full px-4
+						cursor-pointer group focus:outline-none">
+					<span
+						class="inline-flex items-center justify-center
+							w-10 h-10 rounded-full bg-white/30
+							group-hover:bg-white/50 group-focus:ring-4
+							group-focus:ring-white group-focus:outline-none">
+						&rsaquo;
+					</span>
+				</button>
+
+			</div>
+
+		</div>
+
+	</div>
+</body>

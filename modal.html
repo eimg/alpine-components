@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body>
+	<div class="max-w-xl mx-auto my-5 p-10">
+		<div x-data="{ show: false }">
+			<button
+				type="button"
+				x-on:click="show = true"
+				class="text-white bg-blue-700 hover:bg-blue-800
+					rounded-lg text-sm px-5 py-2">
+				Open Modal
+			</button>
+
+			<template x-if="true">
+				<div role="backdrop" x-show="show" class="fixed flex items-center justify-center
+										top-0 left-0 z-50 w-full h-full bg-gray-900/60">
+
+					<div role="modal" x-on:click.outside="show = false" class="w-full max-w-2xl -mt-40 mx-5">
+
+						<div role="modal-content" class="bg-white rounded-lg shadow">
+							<div role="modal-title" class="flex items-start justify-between
+													p-4 border-b rounded-t">
+								<h3 class="text-xl font-semibold text-gray-900">
+									Modal Title
+								</h3>
+								<button type="button" role="close-button" x-on:click="show = false"
+									class="text-red-700 text-xl ml-auto">
+									&times;
+								</button>
+							</div>
+
+							<div role="modal-body" class="p-6 space-y-6">
+								<p class="text-base leading-relaxed
+													text-gray-500 dark:text-gray-400 h-60">
+									<!-- body content -->
+								</p>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</template>
+
+		</div>
+	</div>
+</body>
